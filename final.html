@@ -45,22 +45,26 @@
 <body>
 
     <main id="app">
+
         <ul>
-            <li>
-                <input type="checkbox">
-                <p>Title</p>
-                <button>remove</button>
+            <li v-for="(item, index) in items">
+
+                <input type="checkbox" v-model="item.done">
+                <p>{{item.name}}</p>
+                <button @click="remove(item)">remove</button>
+
             </li>
         </ul>
-        <form>
-            <input id="newItemInput" type="text">
-            <button>Add</button>
+
+        <form v-on:submit.prevent="add">
+            <input id="newItemInput" type="text" v-model="formText">
+            <button type="submit">Add</button>
         </form>
     </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="./main.js"></script>
+    <script src="./final.js"></script>
 </body>
 
 </html>
